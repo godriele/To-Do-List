@@ -8,8 +8,10 @@ app.secret_key = "To-Do-List"
 
 # Todo: I configured SQL Alchemy to work with flask
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
-app.config["SQLALCHEMY_TRACL_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# so each users get their own database, we dont want to track them
 db = SQLAlchemy(app)
+# To create a db for our app
 
 
 # Todo: Create the Database Model
@@ -19,7 +21,7 @@ class User(db.Model):
     username = db.Column(db.String(12), unique=True, nullable=False)
     # People can only create a username with onyl 12 characters
     # People cant leave the usernmae and password blank
-    password= db.Column(db.String(12), nullable=False)
+    password_hash = db.Column(db.String(12), nullable=False)
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -40,7 +42,7 @@ def home():
     return render_template('index.html')
 
 # * Login Route
-@app.route('/login', method=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     
     username = request.form.get("username")
@@ -61,7 +63,7 @@ def login():
         return render_template("index.html", error="Wrong information") # Will show error if users put in the wrong info 
 
 # * Register Route
-@app.rout('/register', method=['POST'])
+@app.route('/register', methods=['POST'])
 def register():
     # similar to the login route, will get their username and password from the input form 
     
@@ -70,7 +72,7 @@ def register():
     
     # using raw SQL query again to see if the user already exists in the db
     existing_user = db.session.execute(
-        text("SELECT username FROM user WHERE username = :usernmae"),
+        text("SELECT username FROM user WHERE username = :username"),
         {"username": username}
     ).scalar()
     
@@ -81,7 +83,8 @@ def register():
         new_user.set_password(password) # this will set the password for the new user
         
         db.session.add(new_user) 
-        db.session.commit() # similar to git commit, commits the session to save the user in the database
+        db.session.commit() 
+        # similar to git commit, commits the session to save the user in the database
         session['username'] = username # creates a session for the new user
         return redirect(url_for('dashboard')) # this is their main page
     
@@ -91,7 +94,7 @@ def register():
 @app.route('/dashboard')
 def dashboard():
     if "username" in session:
-        render_template('dashboard.html', username=session['username'])
+        return render_template('dashboard.html', username=session['username'])
     return redirect(url_for('home'))
 
 # * Logout Route
