@@ -40,7 +40,6 @@ def home():
     return render_template('index.html')
 
 # * Login Route
-
 @app.route('/login', method=['POST'])
 def login():
     
@@ -62,11 +61,46 @@ def login():
         return render_template("index.html", error="Wrong information") # Will show error if users put in the wrong info 
 
 # * Register Route
-
-
-
+@app.rout('/register', method=['POST'])
+def register():
+    # similar to the login route, will get their username and password from the input form 
+    
+    username = request.form.get("username")
+    password = request.form.get("password")
+    
+    # using raw SQL query again to see if the user already exists in the db
+    existing_user = db.session.execute(
+        text("SELECT username FROM user WHERE username = :usernmae"),
+        {"username": username}
+    ).scalar()
+    
+    if existing_user:
+        return render_template('index.html', error="User exists already")
+    else:
+        new_user = User(username=username) # this will create a new User instance
+        new_user.set_password(password) # this will set the password for the new user
+        
+        db.session.add(new_user) 
+        db.session.commit() # similar to git commit, commits the session to save the user in the database
+        session['username'] = username # creates a session for the new user
+        return redirect(url_for('dashboard')) # this is their main page
+    
+    
 # * Dashboard Route
+
+@app.route('/dashboard')
+def dashboard():
+    if "username" in session:
+        render_template('dashboard.html', username=session['username'])
+    return redirect(url_for('home'))
+
 # * Logout Route
+@app.route('/logout')
+def logout():
+    session.pop("username", None)
+    return redirect(url_for('home'))
+
+
 
 #Todo: Create Database
 if __name__ == "__main__":
