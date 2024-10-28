@@ -29,10 +29,24 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
         # if the password the user put is wrong then it will return False, otherwise True
-        
-#Todo: Create Database
 
+# Todo: Create the neccessary routes I need (Home, Login, Register, Dashboarrd, Logout)
+
+# * Home Route
+@app.route('/')
+def home():
+    if "username" in session:
+        return redirect(url_for('dashbaord'))
+    return render_template('index.html')
+
+# * Login Route
+# * Register Route
+# * Dashboard Route
+# * Logout Route
+
+#Todo: Create Database
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+    # This will create our instance folder with users.db inside of it
