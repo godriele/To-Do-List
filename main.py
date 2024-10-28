@@ -40,7 +40,31 @@ def home():
     return render_template('index.html')
 
 # * Login Route
+
+@app.route('/login', method=['POST'])
+def login():
+    
+    username = request.form.get("username")
+    password = request.form.get("password")
+    # Using .get() to avoid KeyError
+    
+    # Im using a raw SQL query to get the password for the given usernmae
+    user_password = db.session.execute(
+        text("SELECT password_hash FROM user WHERE username = :username"), # use text() here
+        {"username": username}
+    ).scalar() # .scalar() will get first result or none
+    
+    # To check if the user password exists and verify it
+    if user_password and check_password_hash(user_password, password):
+        session["username"] = username  # This will store the username in session
+        return redirect(url_for('dashboard')) # if the users is in, this will redirect them to the dashboard
+    else:
+        return render_template("index.html", error="Wrong information") # Will show error if users put in the wrong info 
+
 # * Register Route
+
+
+
 # * Dashboard Route
 # * Logout Route
 
