@@ -27,3 +27,11 @@ Follow these instructions to set up the project locally:
    ```bash
    git clone https://github.com/your_username/To-Do-List.git
    cd To-Do-List
+
+
+# How to run it / Enter your virtual environment
+
+- To enter type in: python3 -m venv flask-auth
+- To activate your venv: source flask-auth/bin/activate
+- To stop it: deactivate
+  
