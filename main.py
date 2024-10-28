@@ -74,8 +74,8 @@ def register():
         {"username": username}
     ).scalar()
     
-    if existing_user:
-        return render_template('index.html', error="User exists already")
+    if existing_user: 
+        return render_template('index.html', error="User exists already") # Will run if the code above is True
     else:
         new_user = User(username=username) # this will create a new User instance
         new_user.set_password(password) # this will set the password for the new user
@@ -100,6 +100,11 @@ def logout():
     session.pop("username", None)
     return redirect(url_for('home'))
 
+'''
+think of each user as a session 
+['bob', 'bonnie', 'luffy']
+all we have to do to log them out is just pop of them on the list
+'''
 
 
 #Todo: Create Database
