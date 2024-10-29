@@ -109,7 +109,6 @@ think of each user as a session
 all we have to do to log them out is just pop of them on the list
 '''
 
-
 #Todo: Create Database
 if __name__ == "__main__":
     with app.app_context():
