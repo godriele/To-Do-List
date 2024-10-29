@@ -8,3 +8,20 @@ MarkupSafe==3.0.2
 SQLAlchemy==2.0.36
 typing_extensions==4.12.2
 Werkzeug==3.0.6
+
+
+## To enter your virtual environment
+
+```bash
+python3 -m venv flask-auth
+# This will create you flask-auth folder with /bin , /include, and /lin
+
+source flask-auth/bin/activate
+# This will activate your venv
+
+# To stop it just type
+deactivate
+```
+
+### - Install these things inside your Virtual Environment, even if you have it installed globally
+pip install flask Flask_SQLAlchemy

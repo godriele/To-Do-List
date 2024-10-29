@@ -38,7 +38,7 @@ class User(db.Model):
 @app.route('/')
 def home():
     if "username" in session:
-        return redirect(url_for('dashbaord'))
+        return redirect(url_for('dashboard'))
     return render_template('index.html')
 
 # * Login Route
