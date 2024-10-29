@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background: linear-gradient(135deg, #ede9e9, #f5ebe0, #d6ccc2);
+    height: 100vh; /* Full height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333; /* Example text color */
+    font-family: Arial, sans-serif; /* Example font */
+}
