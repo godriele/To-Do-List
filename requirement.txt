@@ -13,11 +13,13 @@ Werkzeug==3.0.6
 ## To enter your virtual environment
 
 ```bash
-python3 -m venv flask-auth
 # This will create you flask-auth folder with /bin , /include, and /lin
+python3 -m venv flask-auth
 
-source flask-auth/bin/activate
+
 # This will activate your venv
+source flask-auth/bin/activate
+
 
 # To stop it just type
 deactivate

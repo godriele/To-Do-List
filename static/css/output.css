@@ -656,6 +656,10 @@ video {
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
+.bg-sky-500\/70 {
+  background-color: rgb(14 165 233 / 0.7);
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -682,14 +686,19 @@ video {
   line-height: 2rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold {
@@ -728,21 +737,6 @@ video {
   transition-duration: 300ms;
 }
 
-body {
-  background: linear-gradient(135deg, #ede9e9, #f5ebe0, #d6ccc2);
-  height: 100vh;
-  /* Full height */
-  margin: 0;
-  /* Remove default margin */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  /* Example text color */
-  font-family: Arial, sans-serif;
-  /* Example font */
-}
-
 .hover\:bg-blue-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -768,3 +762,5 @@ body {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(96 165 250 / var(--tw-ring-opacity));
 }
+
+
