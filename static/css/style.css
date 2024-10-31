@@ -1,0 +1,23 @@
+body {
+    background-image: url('../assets/img/background.jpg');
+    /* Correct relative path to the image */
+    background-size: cover;
+    /* Cover the entire viewport */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    height: 100vh;
+    /* Ensure the body takes the full height of the viewport */
+    margin: 0;
+    /* Remove default margin */
+}
+
+.cover-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background for contrast */
+    border-radius: 10px;
+    /* Optional: Add rounded corners */
+    padding: 20px;
+    /* Optional: Add some padding */
+}

@@ -3,30 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <title>To-Do-List</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
   </head>
-  <body
-    style="
-      background: linear-gradient(
-        135deg,
-        #ede9e9,
-        #f5ebe0,
-        #d6ccc2,
-        #e3d5ca,
-        #d5bdaf
-      );
-      height: 100vh;
-    "
-  >
-    <header class="text-center fs-5 fw-semibold text-dark">
-      <h1 class="display-4 fw-semibold text-dark">
-        Welcome to your very own To-Do-List Web application
-      </h1>
-    </header>
-    {% block body %} {% endblock %}
+  <body>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0" href="#">About</a>
+          <a class="nav-link fw-bold py-1 px-0" href="#">Information</a>
+        </nav>
+      </header>
+      <main class="px-3">
+        <h1 class="display-4">To-Do List</h1>
+      </main>
+      {% block body %} {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
