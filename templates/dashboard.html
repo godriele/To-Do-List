@@ -1,40 +1,64 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block body %}
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1>Welcome, {{ username }}</h1>
+    <p>Welcome to your dashboard</p>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+  </div>
 
-{% block body%}
-<div class="container">
-    <h1>Welcome, {{username}}</h1>
-    <p> Welcome to your dashboard</p>
-    <a href="{{url_for('logout')}}" class="btn btn-logout">logout</a>
+  <div class="text-center">
+    <h4>Select a Day</h4>
+    <div class="row row-cols-1 row-cols-md-7 g-3 mt-3">
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='monday') }}"
+          class="btn btn-primary w-100"
+          >Monday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='tuesday') }}"
+          class="btn btn-primary w-100"
+          >Tuesday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='wednesday') }}"
+          class="btn btn-primary w-100"
+          >Wednesday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='thursday') }}"
+          class="btn btn-primary w-100"
+          >Thursday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='friday') }}"
+          class="btn btn-primary w-100"
+          >Friday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='saturday') }}"
+          class="btn btn-primary w-100"
+          >Saturday</a
+        >
+      </div>
+      <div class="col">
+        <a
+          href="{{ url_for('days', day='sunday') }}"
+          class="btn btn-primary w-100"
+          >Sunday</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="days-of-week">
-    <a href="{{url_for('days')}}">
-        <button class="btn btn-days">Monday</button>
-    </a>   
-    <a href="">
-        <button class="btn btn-days">Tuesday</button>
-    </a>
-    <a href="">
-        <button class="btn btn-days">Wednesday</button>
-    </a>    
-    <a href="">
-        <button class="btn btn-days">Thursday</button>
-    </a>
-    <a href="">
-        <button class="btn btn-days">Friday</button>
-    </a>
-    <a href="">
-        <button class="btn btn-days">Saturday</button>
-    </a>
-    <a href="">
-        <button class="btn btn-days">Sunday</button> 
-    </a>
-</div
-
-
 {% endblock %}
-
-
-
-
-

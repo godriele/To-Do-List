@@ -1,48 +1,53 @@
-{% extends "base.html" %}
-
-{% block body %}
-<div class="container mx-auto p-6 h-screen flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
-        <h1 class="text-center text-2xl font-semibold text-gray-800 mb-6">Welcome</h1>
-        <form id="auth-form" action="{{ url_for('login') }}" method="post">
-            <input 
-                type="text" 
-                name="username" 
-                placeholder="Username" 
-                class="input-field block w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-            <input 
-                type="password" 
-                name="password" 
-                placeholder="Password" 
-                class="input-field block w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            > 
-
-            <input 
-                type="submit" 
-                value="Login" 
-                class="btn btn-login w-full bg-blue-400 text-white p-3 rounded-lg hover:bg-blue-500 transition duration-300"
-                onclick="setActionForm('login')"
-            >
-            <input 
-                type="button" 
-                value="Register" 
-                class="btn btn-login w-full bg-gray-300 text-gray-800 p-3 rounded-lg hover:bg-gray-400 transition duration-300 mt-2"
-                onclick="setActionForm('register')"
-            >
-        </form>
-    </div>
+{% extends "base.html" %} {% block body %}
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow-sm p-4 w-100" style="max-width: 400px">
+    <h1 class="text-center h4 mb-4">Welcome</h1>
+    <form id="auth-form" action="{{ url_for('login') }}" method="post">
+      <div class="form-group mb-3">
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-primary w-100 mb-2"
+          onclick="setActionForm('login')"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary w-100"
+          onclick="setActionForm('register')"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 <script>
-    function setActionForm(action) {
-        let form = document.getElementById("auth-form");
-        if (action === 'login') {
-            form.action = "{{ url_for('login') }}";
-        } else if (action === "register") {
-            form.action = "{{ url_for('register') }}";
-        }
-        form.method = "post";
-        form.submit();
+  function setActionForm(action) {
+    let form = document.getElementById("auth-form");
+    if (action === "login") {
+      form.action = "{{ url_for('login') }}";
+    } else if (action === "register") {
+      form.action = "{{ url_for('register') }}";
     }
+    form.method = "post";
+    form.submit();
+  }
 </script>
 {% endblock %}

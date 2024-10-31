@@ -96,13 +96,10 @@ def dashboard():
         return render_template('dashboard.html', username=session['username'])
     return redirect(url_for('home'))
 
-
 # * Days of the week Route
 @app.route('/days')
 def days():
     return render_template('days.html')
-
-
 
 # * Logout Route
 @app.route('/logout')
