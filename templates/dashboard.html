@@ -8,53 +8,39 @@
 
   <div class="text-center">
     <h4>Select a Day</h4>
-    <div class="row row-cols-1 row-cols-md-7 g-3 mt-3">
+    <div class="row row-cols-2 row-cols-md-4 g-2 mt-3">
       <div class="col">
-        <a
-          href="{{ url_for('days', day='monday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='monday') }}" class="btn custom-btn"
           >Monday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='tuesday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='tuesday') }}" class="btn custom-btn"
           >Tuesday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='wednesday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='wednesday') }}" class="btn custom-btn"
           >Wednesday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='thursday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='thursday') }}" class="btn custom-btn"
           >Thursday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='friday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='friday') }}" class="btn custom-btn"
           >Friday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='saturday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='saturday') }}" class="btn custom-btn"
           >Saturday</a
         >
       </div>
       <div class="col">
-        <a
-          href="{{ url_for('days', day='sunday') }}"
-          class="btn btn-primary w-100"
+        <a href="{{ url_for('days', day='sunday') }}" class="btn custom-btn"
           >Sunday</a
         >
       </div>
@@ -63,20 +49,21 @@
 </div>
 
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-<div id="myDIV" class="header">
-  <input type="text" id="myInput" placeholder="Title..." />
-  <span onclick="newElement()" class="addBtn">Add</span>
+<div class="bg-js">
+  <div id="myDIV" class="header">
+    <input
+      type="text"
+      id="myInput"
+      placeholder="Title..."
+      class="form-control"
+    />
+    <span onclick="newElement()" class="addBtn btn btn-primary">Add</span>
+  </div>
+  <ul id="myUL">
+    <li class="checked">Test</li>
+  </ul>
+
+  <script src="/static/JS/addTask.js"></script>
 </div>
-<ul id="myUL">
-  <li class="checked">Test</li>
-</ul>
-
-<script src="/static/JS/addTask.js"></script>
 {% endblock %}

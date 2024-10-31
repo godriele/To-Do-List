@@ -1,23 +1,35 @@
 body {
     background-image: url('../assets/img/background.jpg');
-    /* Correct relative path to the image */
     background-size: cover;
-    /* Cover the entire viewport */
     background-position: center;
-    /* Center the image */
     background-repeat: no-repeat;
-    /* Prevent the image from repeating */
     height: 100vh;
-    /* Ensure the body takes the full height of the viewport */
     margin: 0;
-    /* Remove default margin */
 }
 
-.cover-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Semi-transparent background for contrast */
-    border-radius: 10px;
-    /* Optional: Add rounded corners */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.bg-js {
+    background-color: rgba(211, 211, 211, 0.8);
     padding: 20px;
-    /* Optional: Add some padding */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+}
+
+#myUL li {
+    padding: 8px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    border-radius: 4px;
 }
