@@ -118,4 +118,3 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-    # This will create our instance folder with users.db inside of it
