@@ -1,7 +1,7 @@
 
 # To-Do List
 
-## Project Overview
+# Project Overview
 
 This project, titled **To-Do List**
 was developed as a practical exercise to enhance my skills in web development
@@ -23,14 +23,13 @@ To set up this project on your local machine, follow the instructions below:
 
    python3 -m venv flask-auth  
 Activate the virtual environment:
-bash
-Copy code
+
 source flask-auth/bin/activate  
 Deactivate the virtual environment when finished:
-bash
-Copy code
+
 deactivate  
-About the Project
+
+# About the Project
 
 This application was developed as a learning experience to strengthen my proficiency in several technologies, including:
 Python, JavaScript, HTML, CSS: Core languages used for web development.
